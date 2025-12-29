@@ -1,11 +1,8 @@
 # Buzzwords To Go
 
-A tiny, responsive “business buzzword generator” web page.
+Buzzwords to Go is a tongue-in-cheek mobile web app that serves up three random business buzzwords every time you shake your phone. Built with HTML, CSS, and vanilla JavaScript, this project is a quick hit of corporate nonsense—perfect for startup founders, product managers, and lovers of synergy everywhere.
 
-It displays three randomly selected business words/phrases and lets you refresh them:
-- On page load
-- By clicking the buzzwords container background
-- By shaking your device (when `devicemotion` is supported and permitted)
+Designed as a lightweight static site and deployed to Netlify, it also serves as a fun example project for experimenting with GitHub Copilot, device motion APIs, and responsive mobile UX.
 
 ## How it works
 

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About - Buzzwords to Go</title>
+
+    <!-- Mobile browser UI theming -->
+    <meta name="theme-color" content="#223042" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-TileColor" content="#223042" />
+
+    <link
+      rel="icon"
+      href="assets/icons/favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      href="assets/icons/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/buzzwords-to-go-icon-180x180.png"
+    />
+
+    <!-- Android Icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/icons/buzzwords-to-go-icon-192x192.png"
+    />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta
+      property="og:image"
+      content="assets/icons/buzzwords-to-go-icon-512x512.png"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Switch to light mode"
+    >
+      <svg
+        class="sun-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <a href="index.html" class="nav-button" aria-label="Return to home">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+
+    <header>
+      <img
+        class="site-logo"
+        src="assets/images/buzzwordstogo-logo.png"
+        alt="Buzzwords To Go logo"
+      />
+      <h1>Buzzwords to Go</h1>
+    </header>
+
+    <main>
+      <div class="about-content">
+        <section class="about-section">
+          <h2>What is this?</h2>
+          <p>
+            <strong>Buzzwords to Go</strong> is a tongue-in-cheek mobile web app
+            that serves up three random business buzzwords with every shake of
+            your phone. Whether you're preparing for a pitch deck, brainstorming
+            your next "innovative solution," or just need a dose of corporate
+            humor, we've got you covered with the finest selection of
+            synergistic terminology.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>How does it work?</h2>
+          <p>
+            Just shake your phone (or tap/click anywhere on the buzzwords) and
+            watch as three fresh buzzwords materialize before your eyes. It's
+            perfect for:
+          </p>
+          <ul>
+            <li>Breaking the ice at startup meetups</li>
+            <li>Generating "innovative" product names</li>
+            <li>Creating impressively vague mission statements</li>
+            <li>Having a laugh at corporate speak</li>
+            <li>Impressing your cat with your business acumen</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Why did we build this?</h2>
+          <p>
+            In the spirit of leveraging cross-platform synergies to facilitate
+            paradigm-shifting ideation frameworks... we thought it would be fun.
+            This project serves as a lightweight example of modern web
+            development with responsive design, device motion APIs, and a
+            healthy dose of humor about the business world's love affair with
+            buzzwords.
+          </p>
+          <p>
+            Built with vanilla JavaScript, HTML, and CSS, Buzzwords to Go proves
+            you don't need a framework to create engaging mobile
+            experiences—just a good idea and some well-chosen words.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>Tech Stack</h2>
+          <p>
+            This app is built with modern web technologies and best practices:
+          </p>
+          <ul>
+            <li>
+              <strong>Vanilla JavaScript</strong> - No frameworks, just pure JS
+            </li>
+            <li><strong>Vite</strong> - Fast build tooling with HMR</li>
+            <li>
+              <strong>PostCSS + Autoprefixer</strong> - Browser compatibility
+            </li>
+            <li>
+              <strong>ESLint + Prettier</strong> - Code quality and consistency
+            </li>
+            <li><strong>Image optimization</strong> - Automatic compression</li>
+            <li><strong>Light/Dark mode</strong> - Respect user preferences</li>
+            <li>
+              <strong>Device Motion API</strong> - Shake to refresh on mobile
+            </li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Open Source</h2>
+          <p>
+            Buzzwords to Go is open source and available on GitHub. Feel free to
+            contribute, fork, or use it as a learning resource. We welcome pull
+            requests, bug reports, and suggestions for new buzzwords to add to
+            our collection.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Buzzwords to Go &copy; 2025</p>
+    </footer>
+
+    <script type="module" src="assets/js/app.js" defer></script>
+  </body>
+</html>

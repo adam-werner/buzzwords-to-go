@@ -59,9 +59,15 @@ function startShakeDetection(onShake) {
   if (typeof onShake !== 'function') return;
 
   const G = 9.81;
-  const thresholdG = 2.7;
+  // Lower threshold = more sensitive (smaller shakes trigger).
+  // We also require multiple quick "hits" to avoid accidental triggers.
+  const thresholdG = 2.2;
+  const hitsRequired = 2;
+  const hitWindowMs = 700;
   const cooldownMs = 1200;
   let lastShakeAt = 0;
+  let hitCount = 0;
+  let firstHitAt = 0;
 
   const handler = (event) => {
     const a = event.accelerationIncludingGravity || event.acceleration;
@@ -73,9 +79,21 @@ function startShakeDetection(onShake) {
 
     const gForce = Math.sqrt(x * x + y * y + z * z) / G;
     const now = Date.now();
-    if (gForce >= thresholdG && (now - lastShakeAt) >= cooldownMs) {
-      lastShakeAt = now;
-      onShake();
+    if ((now - lastShakeAt) < cooldownMs) return;
+
+    if (gForce >= thresholdG) {
+      if (hitCount === 0) firstHitAt = now;
+      if ((now - firstHitAt) > hitWindowMs) {
+        hitCount = 0;
+        firstHitAt = now;
+      }
+      hitCount += 1;
+
+      if (hitCount >= hitsRequired) {
+        hitCount = 0;
+        lastShakeAt = now;
+        onShake();
+      }
     }
   };
 

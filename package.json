@@ -8,10 +8,26 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["buzzwords", "generator", "web-app"],
+  "keywords": [
+    "buzzwords",
+    "generator",
+    "web-app"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^7.3.0"
+    "@vheemstra/imagemin-avifenc": "^2.1.0",
+    "autoprefixer": "^10.4.23",
+    "imagemin": "^9.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "imagemin-webp": "^8.0.0",
+    "postcss": "^8.5.6",
+    "vite": "^7.3.0",
+    "vite-plugin-compress": "^2.1.1",
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

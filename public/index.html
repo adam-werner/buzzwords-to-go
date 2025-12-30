@@ -1,60 +1,113 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Buzzwords to Go</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Buzzwords to Go</title>
 
-  <!-- Mobile browser UI theming -->
-  <meta name="theme-color" content="#223042">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-TileColor" content="#223042">
+    <!-- Mobile browser UI theming -->
+    <meta name="theme-color" content="#223042" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-TileColor" content="#223042" />
 
-  <link rel="icon" href="assets/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="icon" href="assets/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-  
-  <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/buzzwords-to-go-icon-180x180.png">
+    <link
+      rel="icon"
+      href="assets/icons/favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      href="assets/icons/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
 
-  <!-- Android Icon -->
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/buzzwords-to-go-icon-192x192.png">
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/buzzwords-to-go-icon-180x180.png"
+    />
 
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:image" content="assets/icons/buzzwords-to-go-icon-512x512.png">
+    <!-- Android Icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/icons/buzzwords-to-go-icon-192x192.png"
+    />
 
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
-    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
+    <!-- Open Graph / Social Sharing -->
+    <meta
+      property="og:image"
+      content="assets/icons/buzzwords-to-go-icon-512x512.png"
+    />
 
-  <header>
-    <img class="site-logo" src="assets/images/buzzwordstogo-logo.png" alt="Buzzwords To Go logo">
-    <h1>Buzzwords to Go</h1>
-  </header>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Switch to light mode"
+    >
+      <svg
+        class="sun-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
 
-  <main>
-    <div class="buzz-container" id="buzzwords">
-      <div class="buzzword"></div>
-      <div class="buzzword"></div>
-      <div class="buzzword"></div>
-    </div>
-  </main>
+    <header>
+      <img
+        class="site-logo"
+        src="assets/images/buzzwordstogo-logo.png"
+        alt="Buzzwords To Go logo"
+      />
+      <h1>Buzzwords to Go</h1>
+    </header>
 
-  <script type="module" src="assets/js/app.js" defer></script>
-</body>
+    <main>
+      <div class="buzz-container" id="buzzwords">
+        <div class="buzzword"></div>
+        <div class="buzzword"></div>
+        <div class="buzzword"></div>
+      </div>
+    </main>
+
+    <script type="module" src="assets/js/app.js" defer></script>
+  </body>
 </html>

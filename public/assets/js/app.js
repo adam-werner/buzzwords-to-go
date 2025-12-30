@@ -25,11 +25,13 @@ function renderThree(arr) {
 }
 
 function attachContainerRefresh() {
-  const container = document.getElementById('buzzwords') || document.querySelector('.buzz-container');
+  const container =
+    document.getElementById('buzzwords') ||
+    document.querySelector('.buzz-container');
   if (!container) return;
 
   // Refresh on any click/tap within the box (including buzzwords).
-  container.addEventListener('click', (e) => {
+  container.addEventListener('click', () => {
     renderThree(buzzwords);
   });
 }
@@ -60,11 +62,11 @@ function startShakeDetection(onShake) {
 
     const gForce = Math.sqrt(x * x + y * y + z * z) / G;
     const now = Date.now();
-    if ((now - lastShakeAt) < cooldownMs) return;
+    if (now - lastShakeAt < cooldownMs) return;
 
     if (gForce >= thresholdG) {
       if (hitCount === 0) firstHitAt = now;
-      if ((now - firstHitAt) > hitWindowMs) {
+      if (now - firstHitAt > hitWindowMs) {
         hitCount = 0;
         firstHitAt = now;
       }
@@ -93,7 +95,10 @@ function startShakeDetection(onShake) {
       }
     };
     document.addEventListener('click', requestOnce, { once: true });
-    document.addEventListener('touchstart', requestOnce, { once: true, passive: true });
+    document.addEventListener('touchstart', requestOnce, {
+      once: true,
+      passive: true,
+    });
   } else {
     enable();
   }
@@ -103,7 +108,7 @@ function startShakeDetection(onShake) {
 function initTheme() {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   const toggleBtn = document.getElementById('theme-toggle');
-  
+
   // Apply saved theme
   if (savedTheme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
@@ -118,10 +123,10 @@ function initTheme() {
     toggleBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
+
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-      
+
       if (newTheme === 'light') {
         updateMetaThemeColor('#e8f0f7');
         toggleBtn.setAttribute('aria-label', 'Switch to dark mode');
@@ -135,7 +140,9 @@ function initTheme() {
 
 function updateMetaThemeColor(color) {
   const metaTheme = document.querySelector('meta[name="theme-color"]');
-  const metaTile = document.querySelector('meta[name="msapplication-TileColor"]');
+  const metaTile = document.querySelector(
+    'meta[name="msapplication-TileColor"]'
+  );
   if (metaTheme) metaTheme.setAttribute('content', color);
   if (metaTile) metaTile.setAttribute('content', color);
 }
@@ -153,4 +160,3 @@ document.addEventListener('DOMContentLoaded', () => {
 window.renderBuzzwords = () => {
   renderThree(buzzwords);
 };
-

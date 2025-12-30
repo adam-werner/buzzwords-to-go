@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint public/assets/js --fix",
+    "format": "prettier --write \"public/**/*.{js,css,html,json}\""
   },
   "keywords": [
     "buzzwords",
@@ -16,8 +18,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@vheemstra/imagemin-avifenc": "^2.1.0",
     "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "imagemin": "^9.0.1",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
@@ -26,6 +31,7 @@
     "imagemin-svgo": "^11.0.1",
     "imagemin-webp": "^8.0.0",
     "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
     "vite": "^7.3.0",
     "vite-plugin-compress": "^2.1.1",
     "vite-plugin-imagemin": "^0.6.1"

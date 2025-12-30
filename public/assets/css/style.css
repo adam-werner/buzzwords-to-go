@@ -64,5 +64,6 @@ header h1{font-size: 2rem;
 .buzzword:focus,.buzzword:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(12,24,56,0.12);outline:none}
 
 @media (max-width:520px){
-  .buzzword {flex:1 1 100%;min-width:0}
+  .buzz-container{padding:2rem 1.5rem;gap:1.5rem}
+  .buzzword {flex:1 1 100%;min-width:0;padding:1.4rem 1.35rem;margin:1.25rem 0}
 }

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
+import { resolve } from 'path';
 
 export default defineConfig({
   // Use public/ as the root directory
@@ -13,6 +14,13 @@ export default defineConfig({
     sourcemap: true,
     // Minify for production
     minify: 'esbuild',
+    // Multi-page app configuration
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'public/index.html'),
+        about: resolve(__dirname, 'public/about.html'),
+      },
+    },
   },
   
   // Dev server config

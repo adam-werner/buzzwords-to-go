@@ -321,3 +321,16 @@ header h1 {
     font-size: 1.25rem;
   }
 }
+
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0;
+}

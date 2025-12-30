@@ -24,24 +24,6 @@ function renderThree(arr) {
   });
 }
 
-// Small interactivity: click to highlight and copy buzzword; Enter/Space support
-function attachInteractions() {
-  const items = document.querySelectorAll('.buzzword');
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      items.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-      const text = item.textContent.trim();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {});
-      }
-    });
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
-    });
-  });
-}
-
 function attachContainerRefresh() {
   const container = document.getElementById('buzzwords') || document.querySelector('.buzz-container');
   if (!container) return;
@@ -120,7 +102,6 @@ function startShakeDetection(onShake) {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderThree(buzzwords);
-  attachInteractions();
   attachContainerRefresh();
 
   // Shake-to-refresh on supported devices

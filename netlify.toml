@@ -2,7 +2,9 @@
   publish = "dist"
   command = "npm run build"
 
+# Redirect only for routes that don't match existing files
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false

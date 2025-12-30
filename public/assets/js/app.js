@@ -28,15 +28,8 @@ function attachContainerRefresh() {
   const container = document.getElementById('buzzwords') || document.querySelector('.buzz-container');
   if (!container) return;
 
-  const isDesktopLike =
-    typeof window !== 'undefined' &&
-    typeof window.matchMedia === 'function' &&
-    window.matchMedia('(pointer: fine)').matches;
-
-  // Desktop: refresh on any click within the box (including buzzwords).
-  // Touch devices: keep it background-only to reduce accidental refreshes.
+  // Refresh on any click/tap within the box (including buzzwords).
   container.addEventListener('click', (e) => {
-    if (!isDesktopLike && e.target !== container) return;
     renderThree(buzzwords);
   });
 }

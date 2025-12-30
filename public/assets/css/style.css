@@ -2,14 +2,53 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 
-:root{color-scheme:dark}
+/* Dark theme (default) */
+:root {
+  color-scheme: dark;
+  --bg-gradient-start: #223042;
+  --bg-gradient-end: #2B3B50;
+  --text-color: #e0e0e0;
+  --container-bg: rgba(255, 255, 255, 0.10);
+  --container-border: rgba(255, 255, 255, 0.16);
+  --container-shadow: rgba(0, 0, 0, 0.35);
+  --buzzword-bg: #ffffff;
+  --buzzword-border: #e6e9f2;
+  --buzzword-text: #0f172a;
+  --buzzword-shadow: rgba(12, 24, 56, 0.06);
+  --buzzword-shadow-hover: rgba(12, 24, 56, 0.12);
+  --buzzword-border-bottom: #555;
+  --toggle-bg: rgba(255, 255, 255, 0.15);
+  --toggle-bg-hover: rgba(255, 255, 255, 0.25);
+  --toggle-icon: #e0e0e0;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-gradient-start: #e8f0f7;
+  --bg-gradient-end: #d4e4f0;
+  --text-color: #1e293b;
+  --container-bg: rgba(255, 255, 255, 0.6);
+  --container-border: rgba(148, 163, 184, 0.3);
+  --container-shadow: rgba(15, 23, 42, 0.08);
+  --buzzword-bg: #ffffff;
+  --buzzword-border: #cbd5e1;
+  --buzzword-text: #0f172a;
+  --buzzword-shadow: rgba(15, 23, 42, 0.08);
+  --buzzword-shadow-hover: rgba(15, 23, 42, 0.16);
+  --buzzword-border-bottom: #cbd5e1;
+  --toggle-bg: rgba(51, 65, 85, 0.1);
+  --toggle-bg-hover: rgba(51, 65, 85, 0.2);
+  --toggle-icon: #334155;
+}
 
 body {
-  background: linear-gradient(to bottom, #223042, #2B3B50);
-  color: #e0e0e0;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-color);
   font-family: Inter,Segoe UI,Roboto,Arial,sans-serif;
   text-align: center;
   padding: 2rem;
+  transition: background 0.6s ease, color 0.6s ease;
 }
 header{
   display:flex;
@@ -42,30 +81,101 @@ header h1{font-size: 2rem;
   padding:1.25rem;
   max-width:960px;
   width:94%;
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--container-bg);
+  border: 1px solid var(--container-border);
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35)
+  box-shadow: 0 10px 30px var(--container-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .buzzword{
-  background:#ffffff;
-  border:1px solid #e6e9f2;
+  background: var(--buzzword-bg);
+  border:1px solid var(--buzzword-border);
   padding:0.9rem 1.2rem;
   border-radius:12px;
-  box-shadow:0 6px 18px rgba(12,24,56,0.06);
+  box-shadow:0 6px 18px var(--buzzword-shadow);
   cursor:pointer;
-  transition:box-shadow .16s ease;
-  color:#0f172a;
+  transition:box-shadow .16s ease, background 0.3s ease, border-color 0.3s ease;
+  color: var(--buzzword-text);
   font-weight:600;
   min-width:140px;
   text-align:center;
   font-size: 1.5rem;
   margin: 1rem 0;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid var(--buzzword-border-bottom);
 }
-.buzzword:focus,.buzzword:hover{box-shadow:0 14px 36px rgba(12,24,56,0.12);outline:none}
+.buzzword:focus,.buzzword:hover{box-shadow:0 14px 36px var(--buzzword-shadow-hover);outline:none}
 
 @media (max-width:520px){
   .buzz-container{padding:2rem 1.5rem;gap:1.5rem}
   .buzzword {flex:1 1 100%;min-width:0;padding:1.4rem 1.35rem;margin:1.25rem 0}
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  border: 1px solid var(--container-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+  z-index: 1000;
+  color: var(--toggle-icon);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-bg-hover);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Default dark mode: show sun icon */
+.theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+/* Light mode: show moon icon */
+[data-theme="light"] .theme-toggle .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="light"] .theme-toggle .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 520px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
 }

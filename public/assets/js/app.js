@@ -99,7 +99,49 @@ function startShakeDetection(onShake) {
   }
 }
 
+// Theme management
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const toggleBtn = document.getElementById('theme-toggle');
+  
+  // Apply saved theme
+  if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    updateMetaThemeColor('#e8f0f7');
+    if (toggleBtn) toggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+  } else {
+    updateMetaThemeColor('#223042');
+  }
+
+  // Toggle button click handler
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      if (newTheme === 'light') {
+        updateMetaThemeColor('#e8f0f7');
+        toggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+      } else {
+        updateMetaThemeColor('#223042');
+        toggleBtn.setAttribute('aria-label', 'Switch to light mode');
+      }
+    });
+  }
+}
+
+function updateMetaThemeColor(color) {
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  const metaTile = document.querySelector('meta[name="msapplication-TileColor"]');
+  if (metaTheme) metaTheme.setAttribute('content', color);
+  if (metaTile) metaTile.setAttribute('content', color);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   renderThree(buzzwords);
   attachContainerRefresh();
 

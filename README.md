@@ -106,6 +106,18 @@ Code quality and consistency tools:
 - **ESLint** (`eslint.config.js`) - Enforces code standards with warnings for unused variables and console statements
 - **Prettier** (`.prettierrc.json`) - Ensures consistent code formatting across all files
 
+### Google Analytics
+
+Google Analytics tracking is integrated using environment variables:
+
+- Analytics only loads when `VITE_GA_MEASUREMENT_ID` environment variable is set
+- During development, create a `.env` file with your GA4 Measurement ID:
+  ```
+  VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+  ```
+- For Netlify deployment, add `VITE_GA_MEASUREMENT_ID` to your environment variables in the Netlify dashboard
+- The `.env.example` file provides a template for required variables
+
 ## Deployment
 
 This project is configured for [Netlify](https://netlify.com/) deployment:
@@ -113,6 +125,7 @@ This project is configured for [Netlify](https://netlify.com/) deployment:
 - `netlify.toml` defines build command (`npm run build`) and publish directory (`dist/`)
 - Single-page app redirects configured for client-side routing
 - Build automatically runs on every commit/push
+- **Environment variables**: Add `VITE_GA_MEASUREMENT_ID` in Netlify dashboard → Site settings → Environment variables
 
 ## Contributing
 

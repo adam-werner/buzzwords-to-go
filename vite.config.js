@@ -1,10 +1,24 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
 import { resolve } from 'path';
 
-export default defineConfig({
-  // Use public/ as the root directory
-  root: 'public',
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  
+  const gaScript = env.VITE_GA_MEASUREMENT_ID
+    ? `<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${env.VITE_GA_MEASUREMENT_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${env.VITE_GA_MEASUREMENT_ID}');
+    </script>`
+    : '<!-- Google Analytics not configured -->';
+  
+  return {
+    // Use public/ as the root directory
+    root: 'public',
   
   // Build output to dist/ at project root
   build: {
@@ -36,6 +50,12 @@ export default defineConfig({
 
   // Plugins
   plugins: [
+    {
+      name: 'html-transform',
+      transformIndexHtml(html) {
+        return html.replace('<!-- GA_SCRIPT -->', gaScript);
+      },
+    },
     viteImagemin({
       // PNG optimization
       optipng: {
@@ -64,4 +84,5 @@ export default defineConfig({
       },
     }),
   ],
+  };
 });

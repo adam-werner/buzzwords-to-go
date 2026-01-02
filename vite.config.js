@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from 'vite';
-import { defineConfig, loadEnv } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
 import { resolve } from 'path';
 

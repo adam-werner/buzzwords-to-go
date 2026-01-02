@@ -1,18 +1,23 @@
 import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
 import { resolve } from 'path';
+
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
-  const gaScript = env.VITE_GA_MEASUREMENT_ID
+  // Check both .env file (via loadEnv) and process.env (for Netlify/CI)
+  const measurementId = env.VITE_GA_MEASUREMENT_ID || process.env.VITE_GA_MEASUREMENT_ID;
+  
+  const gaScript = measurementId
     ? `<!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${env.VITE_GA_MEASUREMENT_ID}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${measurementId}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', '${env.VITE_GA_MEASUREMENT_ID}');
+      gtag('config', '${measurementId}');
     </script>`
     : '<!-- Google Analytics not configured -->';
   
